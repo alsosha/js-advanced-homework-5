@@ -37,13 +37,17 @@ class Character {
         const [attack, defence] = defenceObject[newtype].split('/');
 
         this._type = newtype;
-        this.attack = attack;
-        this.defence = defence;
+        this.attack = Number(attack);
+        this.defence = Number(defence);
         
     }
 
+    get type() {
+        return this._type;
+    }
+
     levelUp() {
-        if (health <= 0) {
+        if (this.health <= 0) {
             throw new Error('Sorry, your character is dead T-T');
         }
 
@@ -54,7 +58,7 @@ class Character {
     }
 
     damage(points) {
-        if (health <= 0) {
+        if (this.health <= 0) {
             throw new Error('You died x_x');
         }
 
@@ -109,3 +113,5 @@ class Demon extends Character {
         this.level = 1
     }
 }
+
+export { Character, Bowman, Swordsman, Magician, Undead, Zombie, Demon };
