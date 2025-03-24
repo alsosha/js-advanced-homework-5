@@ -25,7 +25,7 @@ class Character {
             Magician: '10/40',
             Undead: '25/25',
             Zombie: '40/10',
-            Daemon: '10/40'
+            Demon: '10/40'
         };
 
         const types = Object.keys(defenceObject);
@@ -34,7 +34,59 @@ class Character {
             throw new Error('This type does not exist');
         }
 
+        const [attack, defence] = defenceObject[newtype].split('/');
+
         this._type = newtype;
-        this.defence = defenceObject[newtype];
+        this.attack = attack;
+        this.defence = defence;
+        
+    }
+}
+
+class Bowman extends Character {
+    constructor(name) {
+        super(name, 'Bowman');
+        this.health = 100;
+        this.level = 1
+    }
+} 
+
+class Swordsman extends Character {
+    constructor(name) {
+        super(name, 'Swordsman');
+        this.health = 100;
+        this.level = 1
+    }
+}
+
+class Magician extends Character {
+    constructor(name) {
+        super(name, 'Magician');
+        this.health = 100;
+        this.level = 1
+    }
+}
+
+class Undead extends Character {
+    constructor(name) {
+        super(name, 'Undead');
+        this.health = 100;
+        this.level = 1
+    }
+} 
+
+class Zombie extends Character {
+    constructor(name) {
+        super(name, 'Zombie');
+        this.health = 100;
+        this.level = 1
+    }
+}
+
+class Demon extends Character {
+    constructor(name) {
+        super(name, 'Demon');
+        this.health = 100;
+        this.level = 1
     }
 }
