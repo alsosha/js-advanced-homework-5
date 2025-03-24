@@ -8,7 +8,7 @@ class Character {
 
     set name(newName) {
         if (String(newName).length < 2 || String(newName).length > 10) {
-            throw new Error('Name is incorrect');
+            throw new Error('Name is incorrect O_o');
         }
 
         this._name = newName;
@@ -31,7 +31,7 @@ class Character {
         const types = Object.keys(defenceObject);
         
         if (!types.includes(newtype)) {
-            throw new Error('This type does not exist');
+            throw new Error('This type does not exist ._.');
         }
 
         const [attack, defence] = defenceObject[newtype].split('/');
@@ -40,6 +40,25 @@ class Character {
         this.attack = attack;
         this.defence = defence;
         
+    }
+
+    levelUp() {
+        if (health <= 0) {
+            throw new Error('Sorry, your character is dead T-T');
+        }
+
+        this.level++;
+        this.attack = this.attack*1.2;
+        this.defence = this.defence*1.2;
+        this.health = 100;
+    }
+
+    damage(points) {
+        if (health <= 0) {
+            throw new Error('You died x_x');
+        }
+
+        this.health -= points * (1 - this.defence / 100);
     }
 }
 
