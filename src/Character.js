@@ -3,7 +3,9 @@ export default class Character {
         this.name = name;
         this.type = type;
         this.health = 100;
-        this.level = 1
+        this.level = 1;
+        this.attack = undefined;
+        this.defence = undefined;
     }
 
     set name(newName) {
@@ -26,8 +28,6 @@ export default class Character {
         }
 
         this._type = newtype;
-        this.attack = undefined;
-        this.defence = undefined;
     }
 
     get type() {
